@@ -26,6 +26,6 @@ def run_game():
             print(f"that number is higher than the number")
         number_guesses -= 1
         if number_guesses < 1:
-            print("game ended")
+            print(f"game ended, the number was {answer}")
 
 run_game()
