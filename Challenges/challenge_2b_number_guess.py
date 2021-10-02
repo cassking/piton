@@ -14,14 +14,15 @@ def run_game():
     answer: int = random.randint(1, 20)
     print("I'm thinking of a number between 1 and 20")
     number_guesses = 3
-    while number_guesses > 0:
-        print(f'you have {number_guesses} left')
-        guess = int(input("Make a guess: "))
+    print(f'you have {number_guesses} left')
+    guess = int(input("Make a guess: "))
         if guess == answer:
             print(f"that is correct, game over the answer {answer}")
             return
         elif guess < answer:
             print(f"that number is lower than the number")
+        elif number_guesses == 0:
+            break
         else:
             print(f"that number is higher than the number")
         number_guesses -= 1
