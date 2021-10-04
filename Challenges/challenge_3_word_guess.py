@@ -60,14 +60,16 @@ def word_game():
     # choose random word
     combined_words = words + lower_case_hard_words
     random_word = random.choice(combined_words)
-    print(f"random word is:___ {random_word}")
-    # length_of_word = len(random_word)
+    # print(f"random word is:___ {random_word}")
+    length_of_word = len(random_word)
+    print(f"this word is {length_of_word} letters long ....")
     for num in range(6):
         num_guesses_used = num+1
         guess = input("guess one letter:    ")
         print(f"the guess is {guess}")
         if guess not in random_word:
-            print(f" that letter: {guess} is NOT the word {random_word}")
+            # print(f" that letter: {guess} is NOT the word {random_word}")
+            print(f" that letter: {guess} is NOT the word ....")
             correct.append(guess)
             print(f"your correct guesses so far {correct}")
         else:
