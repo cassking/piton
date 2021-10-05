@@ -51,38 +51,50 @@ If the user doesn't win, tell them the answer.
 import random
 
 correct = []  # fill list with correct letters
+# correct_string = ''
 incorrect = []  # fill list with incorrect letters
+# incorrect_string = ''
 lower_case_hard_words = [hard_word.lower() for hard_word in hard_words]
 # convert all to lower case too
 
 
 def word_game():
+    correct_string = ''
+    incorrect_string = ''
+
     # choose random word
     combined_words = words + lower_case_hard_words
     random_word = random.choice(combined_words)
     # print(f"random word is:___ {random_word}")
     length_of_word = len(random_word)
-    print(f"this word is {length_of_word} letters long ....")
+    # replace word with underscores for length of word
+    word_replace_underscore = '_ ' * length_of_word
+    print(f"this word is {length_of_word} letters long ....{word_replace_underscore}")
+
+    # allow for 6 guesses
     for num in range(6):
         num_guesses_used = num+1
-        guess = input("guess one letter:    ")
+        guess = input("guess one letter:    >>   ")
         print(f"the guess is {guess}")
         if guess not in random_word:
-            # print(f" that letter: {guess} is NOT the word {random_word}")
             print(f" that letter: {guess} is NOT the word ....")
-            correct.append(guess)
-            print(f"your correct guesses so far {correct}")
+            # incorrect.append(guess)
+            incorrect_string += guess
         else:
             print(f" that letter: {guess} IS INDEED in the word")
-            incorrect.append(guess)
-            print(f"your incorrect guesses so far {incorrect}")
-        print(f"number guesses used {num+1}")
+            # correct.append(guess)
+            correct_string += guess
+            print(f"NUM HERE IS {num}")
+        print(f"your WRONG guesses so far {incorrect_string}")
+        print(f"your CORRECT guesses so far CORRECT STRING {correct_string}")
+        print(f"number guesses used {num + 1}")
+
         if num_guesses_used == 6:
-            guess_word = input("do you want to guess the word?:   ")
+            guess_word = input("do you want to guess the word?:   >>   ")
             if guess_word == random_word:
                 print(f"you won!! that is correct")
             else:
                 print(f"sorry, that is not correct, the word was: {random_word}")
 
-
+                
 word_game()
