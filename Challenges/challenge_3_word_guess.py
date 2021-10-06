@@ -59,17 +59,18 @@ lower_case_hard_words = [hard_word.lower() for hard_word in hard_words]
 
 
 def word_game():
-    correct_string = ''
-    incorrect_string = ''
+    # correct_string = ''
+    # incorrect_string = ''
 
     # choose random word
     combined_words = words + lower_case_hard_words
     random_word = random.choice(combined_words)
-    # print(f"random word is:___ {random_word}")
+    print(f"random word is:___ {random_word}")
     length_of_word = len(random_word)
     # replace word with underscores for length of word
-    word_replace_underscore = '_ ' * length_of_word
-    print(f"this word is {length_of_word} letters long ....{word_replace_underscore}")
+    word_replace_underscore = '_' * length_of_word
+    word_replace_underscore_list = list(word_replace_underscore)
+    print(f"this word is {length_of_word} letters long ....{word_replace_underscore_list}")
 
     # allow for 6 guesses
     for num in range(6):
@@ -78,15 +79,21 @@ def word_game():
         print(f"the guess is {guess}")
         if guess not in random_word:
             print(f" that letter: {guess} is NOT the word ....")
-            # incorrect.append(guess)
-            incorrect_string += guess
+            incorrect.append(guess)
+
         else:
+            index_of_let = random_word.index(guess)
+            word_replace_underscore_list[index_of_let] = guess
+            print(f"index of letter {index_of_let}")
             print(f" that letter: {guess} IS INDEED in the word")
-            # correct.append(guess)
-            correct_string += guess
+            correct.append(guess)
             print(f"NUM HERE IS {num}")
-        print(f"your WRONG guesses so far {incorrect_string}")
-        print(f"your CORRECT guesses so far CORRECT STRING {correct_string}")
+            print(f"the list with guesses and underscores {word_replace_underscore_list}")
+
+        right = "".join(word_replace_underscore_list)
+        wrong = "".join(incorrect)
+        print(f"your WRONG guesses so far {wrong}")
+        print(f"your CORRECT guesses so far CORRECT STRING {right}")
         print(f"number guesses used {num + 1}")
 
         if num_guesses_used == 6:
@@ -96,5 +103,5 @@ def word_game():
             else:
                 print(f"sorry, that is not correct, the word was: {random_word}")
 
-                
+
 word_game()
