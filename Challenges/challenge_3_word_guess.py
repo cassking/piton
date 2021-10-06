@@ -49,6 +49,8 @@ and the number of wrong guesses left.
 If the user doesn't win, tell them the answer.
 """
 import random
+import collections
+
 
 correct = []  # fill list with correct letters
 # correct_string = ''
@@ -65,6 +67,7 @@ def word_game():
     # choose random word
     combined_words = words + lower_case_hard_words
     random_word = random.choice(combined_words)
+    random_word_list = list(random_word)
     print(f"random word is:___ {random_word}")
     length_of_word = len(random_word)
     # replace word with underscores for length of word
@@ -83,13 +86,13 @@ def word_game():
 
         else:
             index_of_let = random_word.index(guess)
+            # my_list = [guess if i == random_word.index(guess) else i for i in random_word_list]
             word_replace_underscore_list[index_of_let] = guess
-            print(f"index of letter {index_of_let}")
+            # print(f"index of letter {index_of_let}")
             print(f" that letter: {guess} IS INDEED in the word")
             correct.append(guess)
             print(f"NUM HERE IS {num}")
-            print(f"the list with guesses and underscores {word_replace_underscore_list}")
-
+            print(f"INDEX OF LETTER +++ {index_of_let}")
         right = "".join(word_replace_underscore_list)
         wrong = "".join(incorrect)
         print(f"your WRONG guesses so far {wrong}")
