@@ -80,12 +80,14 @@ def word_game():
         else:
             number_of_guesses -= 1  # decrease guesses if wrong
             print(f"Sorry!!! NO,  try another guess, number guesses left:  {number_of_guesses}")
-        if number_of_guesses == 5:
-            guessed_word = input("would you like to guess the word?: >>>   ")
+        if number_of_guesses == 1:
+            guessed_word = input("Would you like to guess the word? >>>  ")
             if guessed_word == random_word_answer:
                 print("You won!")
+                return
             else:
                 print(f"sorry, you lost :( the word was {random_word_answer}")
+                return
 
 
 word_game()
