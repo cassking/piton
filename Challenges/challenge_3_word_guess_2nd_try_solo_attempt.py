@@ -61,33 +61,36 @@ def word_game():
     while number_of_guesses > 0:
         print(f"number guesses {number_of_guesses}, random word {random_word_answer}")
         player_answer_so_far = ''
-
         for letter in random_word_answer:
             if letter in guessed_letters_list:
-                print(f"guessed letters list: {guessed_letters_list}")
+                # print(f"guessed letters list: {guessed_letters_list}")
                 player_answer_so_far += letter
             else:
                 player_answer_so_far += "_"
-
-        print(f"your letter guesses so far:  {guessed_letters_list}")
         print(f"player_answer_so_far: {player_answer_so_far}")
+
+        if player_answer_so_far == random_word_answer:
+            print(f"you win word is {random_word_answer}")
+            break
 
         guessed_letter = input("Guess a letter: >>>   ")
         guessed_letters_list.append(guessed_letter)
 
+        print(f"your letter guesses so far:  {guessed_letters_list}")
         if guessed_letter in random_word_answer:
             print(f"Yes!!!! correct, that letter is in the word")
         else:
             number_of_guesses -= 1  # decrease guesses if wrong
             print(f"Sorry!!! NO,  try another guess, number guesses left:  {number_of_guesses}")
+
         if number_of_guesses == 1:
             guessed_word = input("Would you like to guess the word? >>>  ")
+            print
             if guessed_word == random_word_answer:
                 print("You won!")
                 return
             else:
                 print(f"sorry, you lost :( the word was {random_word_answer}")
                 return
-
 
 word_game()
