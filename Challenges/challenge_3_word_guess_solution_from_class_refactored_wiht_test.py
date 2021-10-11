@@ -59,8 +59,8 @@ def user_did_win(answer, guessed_letters):
 
 
 # tests can write this way because user_did_win returns a boolean
-assert(user_did_win('hi', ['h', 'i', 's']) == True)
-assert(not user_did_win('hi', ['i', 's']) == False)
+# assert(user_did_win('hi', ['h', 'i', 's']) == True)
+# assert(not user_did_win('hi', ['i', 's']) == False)
 
 
 def word_game():
