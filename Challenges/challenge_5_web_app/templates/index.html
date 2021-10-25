@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>How many clicks?</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="content">
+        <h1>I've been clicked <span id="num-clicks">___{{ num_clicks }}___</span> times</h1>
+            <a href="#" id="click">
+                <img src="{{ url_for('static', filename='cat.png') }}">
+            </a>
+    </div>
+</body>
+</html>
